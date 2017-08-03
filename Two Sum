@@ -1,0 +1,45 @@
+package leetcode.p.a.TwoSum;
+
+import java.util.Arrays;
+
+/**
+ * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+ * You may assume that each input would have exactly one solution, and you may not use the same element twice.
+ * 
+ * 给定一个整数数组，返回两个数字的索引，使它们相加到一个特定的目标。 
+ * 您可以假设每个输入都只有一个解决方案，而您可能不会使用相同的元素两次。
+ * 
+ * @author Administrator
+ *
+ *Example:
+ *Given nums = [2, 7, 11, 15], target = 9,
+ *Because nums[0] + nums[1] = 2 + 7 = 9,
+ *return [0, 1].
+ *
+ */
+public class Solution {
+	public static int[] twoSum(int[] nums, int target) {
+		int[] result = new int[2];
+		//获取到输入的数组，按数组角标进行遍历获取值，然后两两相加，循环体系
+		for (int i = 0; i < nums.length-1; i++) {//确定大循环次数
+			for (int j = i+1; j < nums.length; j++) {//确定小循环次数
+				//小循环中的操作：当前循环中的第一个数与其后的每一个数求和
+				if (target == nums[i] + nums[j]) {
+					result[0] = i;
+					result[1] = j;					
+				}				
+			}			
+		}
+		System.out.println(Arrays.toString(result));		
+		return null;        
+    }
+	
+
+	public static void main(String[] args) {
+		int[] nums = {2, 7, 11, 15};
+		int target = 9;
+		twoSum(nums, target);
+		
+	}
+
+}
